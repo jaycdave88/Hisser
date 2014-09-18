@@ -4,7 +4,7 @@ describe "Get /" do
   it "responds with success status" do
   	#arrange
   	#act
-  	Get '/'
+  	get '/'
   	#assert
   	expect(last_response.status).to equal(200)
   end
