@@ -35,8 +35,8 @@ describe "Snakes in the model" do
 	  	avatar: 	  "http://i.imgur.com/Y4S7Bx9.gif"
   		)
   	@test_hiss = "I like your ball bro"
-    @user1.relationships.create(follower_id:2)
-    @user1_follower_array = @user1.relationships.pluck(:follower_id)
+    @user1.relationships.create(user_id:2)
+    @user1_follower_array = @user1.relationships.pluck(:user_id)
   end
 
   it "can identify their own hisses" do
@@ -49,10 +49,10 @@ describe "Snakes in the model" do
   end
 
 	it "can identify who they're following" do
-		@user2_is_following = @user2.relationships.pluck(:follower_id).first
+		@user2_is_following = @user2.relationships.pluck(:user_id).first
 		expect(@user2_is_following).to equal(1)
 	end
-		
+
 	it "can identify hisses from snakes they follow" do
 		expect(@user2_is_following.first.hisses).to equal(@test_hiss)
 	end
