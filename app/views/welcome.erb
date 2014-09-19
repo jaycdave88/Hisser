@@ -2,8 +2,14 @@
 Welcome
 <% user= User.find(session[:user_id]) %>
 <%= user.snake_name  %>
-<a href=""> Log out </a>
-</div>
+
+<a href="http://localhost:9393/?"> Log out </a>
+
+<!-- <form action = "/" method = 'get'>
+  <input type = 'submit' value ="Log out" id ="log_out">
+</form>
+</div> -->
+
 <div class = "statistics">
   <p> Followers <%= user.relationships.pluck(:followed_id).count  %>
     You Follow <%= Relationship.where(follower_id: user.id).count  %>

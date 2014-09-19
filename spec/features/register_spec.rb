@@ -19,10 +19,10 @@ feature "register process" do
   		fill_in "password",   with: "ssss"
   		click_button 'register_submit'
   	end
-  	expect(page).to have_content 'Welcome'
+  	expect(page).to have_content 'Login'
   end
 
-  scenario "stop uncool wannabe snakes from registering" do
+  scenario "stop empty form fields from registering" do
   	visit '/snake_hatch'
   	within(".registration") do
   		click_button 'register_submit'
