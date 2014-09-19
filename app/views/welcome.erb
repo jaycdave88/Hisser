@@ -10,3 +10,21 @@ Welcome
     You Follow <%= Relationship.where(person_id: user.id).count  %>
   </p>
 </div>
+
+<div class = "avatar">
+    <%if session[:user_id]%>
+      <%email_address = user.email.downcase %>
+      <%hash = Digest::MD5.hexdigest(email_address)%>
+      <%image_src = "http://www.gravatar.com/avatar/#{hash}"%>
+      <img src="<%=image_src%>">
+    <%end%>
+</div>
+
+
+<div class = "hisses">
+
+  <h1>Latest Hisses</h1>
+ <% array = user.relationships.pluck(:following_id)  %>
+ <%= array.each{ |id| p Hiss.find_by(user_id: id).hiss} %>
+
+</div>
