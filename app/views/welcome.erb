@@ -1,7 +1,5 @@
 <div class = "login_block">
 Welcome
-<% user= User.find(session[:user_id]) %>
-<%= user.snake_name  %>
 
 <a href="http://localhost:9393/?"> Log out </a>
 </div>
@@ -11,14 +9,15 @@ Welcome
 </div> -->
 
 <div class = "statistics">
-  <p> Followers <%= user.relationships.pluck(:following_id).count  %>
-    You Follow <%= Relationship.where(person_id: user.id).count  %>
+  <p> Followers <%= @user.relationships.pluck(:following_id).count  %>
+    You Follow <%= Relationship.where(person_id: @user.id).count  %>
   </p>
 </div>
 
 <div class = "avatar">
+  <h2>Avatar</h2>
     <%if session[:user_id]%>
-      <%email_address = user.email.downcase %>
+      <%email_address = @user.email.downcase %>
       <%hash = Digest::MD5.hexdigest(email_address)%>
       <%image_src = "http://www.gravatar.com/avatar/#{hash}"%>
       <img src="<%=image_src%>">
@@ -27,9 +26,34 @@ Welcome
 
 
 <div class = "hisses">
-
   <h1>Latest Hisses</h1>
- <% array = user.relationships.pluck(:following_id)  %>
- <%= array.each{ |id| p Hiss.find_by(user_id: id).hiss} %>
-
+ <% array = @user.relationships.pluck(:following_id)   %>
+  <% array << @user.id  %>
+  <%= array%>
+ <% array.each do |id|%>
+   <p><%= Hiss.find_by(user_id: id).hiss %></p>
+<%end%>
+<%=erb :your_hiss%>
 </div>
+
+<div class="snakes">
+  <h2>Snakes you Follow!</h2>
+ <% array.each do |id|%>
+   <p><%= User.find(id).snake_name %></p>
+<%end%>
+</div>
+
+<br>
+<br>
+
+<div class="creat_hiss">
+<p>Create HIss</p>
+<form action='/new_hiss' method='post'>
+  <input type="text" name="hissing" placeholder="New Hiss"><br>
+  <input
+  <input type="hidden" name="user_id" value="<%= @user.id%>" >
+  <input type="submit">
+</form>
+  </div>
+
+

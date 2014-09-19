@@ -4,7 +4,7 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
   background-color: rgba(200,0,100,0.5);
-
+  position: center;
 }
 .big_snake {
   background-image: url("snake.jpg");
@@ -23,16 +23,22 @@
 }
 .avatar p{
 
-
+  display: inline-block;
    border: 1px dotted black;
    width: 100px;
    height: 100px
    float: left;
+   width: 15%;
 }
 .hisses{
-
+  display: inline;
    border: 1px dotted black;
    width: 400x;
    float: left;
-   margin-right: 200px;
+   margin-right: 20px;
+}
+.snakes{
+  display: inline;
+   border: 1px dotted black;
+   float: left;
 }

@@ -10,6 +10,9 @@ end
 
 
 get '/welcome_page' do
+	@user= User.find(session[:user_id])
+ 	@user.snake_name
+
 	erb :welcome
 end
 
@@ -38,5 +41,8 @@ post '/snake_hatch' do
 	end
 end
 
-
+post '/new_hiss' do
+	Hiss.create(user_id: params[:user_id], hiss: params[:hissing])
+	redirect '/welcome_page'
+end
 
