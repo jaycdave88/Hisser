@@ -11,3 +11,13 @@
   background-repeat: repeat;
 }
 
+.login_block{
+  border: 1px dotted black;
+  text-align: right;
+  padding: 0 20px 0 0;
+}
+.statistics {
+  border: 1px dotted black;
+  padding: 0px 30% 0px 0px;
+  text-align: right;
+}
