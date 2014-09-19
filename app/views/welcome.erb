@@ -1,6 +1,6 @@
 <div class = "login_block">
 Welcome
-<% user= User.find(session[:user_id]) %>
+<% user= User.find_by(snake_name: session[:username]) %>
 <%= user.snake_name  %>
 
 <a href="http://localhost:9393/?"> Log out </a>
