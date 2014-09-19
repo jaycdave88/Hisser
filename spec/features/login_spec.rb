@@ -1,6 +1,6 @@
 require_relative "../spec_helper"
 
-feature "login process", :type => :feature do
+feature "login process" do
   before :each do
     User.create(
     	snake_name:"Testicles",
@@ -12,7 +12,7 @@ feature "login process", :type => :feature do
     	)
   end
 
-  scenario "signs in existing users" do
+  scenario "signs in to welcome page existing users" do
   	visit '/'
   	within(".user_login") do
   		fill_in "name", with: "Testicles"
@@ -27,7 +27,7 @@ feature "login process", :type => :feature do
     	password:"Shoulders",
     	) }
 
-  scenario "doesn't sign in non-users" do
+  scenario "doesn't sign in non-user, goes to NOT FOUND page instead" do
   	visit '/'
   	within(".user_login") do
   		fill_in "name", with: guest_user.password
