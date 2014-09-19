@@ -1,12 +1,9 @@
 <div class = "login_block">
-Welcome
+Welcome <% user= User.find_by(snake_name: session[:username]) %>
+<%= user.snake_name  %>
+
 
 <a href="http://localhost:9393/?"> Log out </a>
-</div>
-<!-- <form action = "/" method = 'get'>
-  <input type = 'submit' value ="Log out" id ="log_out">
-</form>
-</div> -->
 
 <div class = "statistics">
   <p> Followers <%= @user.relationships.pluck(:following_id).count  %>

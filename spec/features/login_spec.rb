@@ -15,8 +15,8 @@ feature "login process" do
   scenario "signs in to welcome page existing users" do
   	visit '/'
   	within(".user_login") do
-  		fill_in "name", with: "Testicles"
-  		fill_in "user_pwd", with: "qwerty"
+  		fill_in "snake_name", with: "Testicles"
+  		fill_in "password", with: "qwerty"
   	end
   	click_button 'login_submit'
   	expect(page).to have_content 'Welcome'
@@ -27,14 +27,24 @@ feature "login process" do
     	password:"Shoulders",
     	) }
 
-  scenario "doesn't sign in non-user, goes to NOT FOUND page instead" do
+  scenario "doesn't sign in a non-username, goes to NOT FOUND page instead" do
+    visit '/'
+    within(".user_login") do
+      fill_in "snake_name", with: guest_user.password
+      fill_in "password", with: guest_user.snake_name
+    end
+    click_button 'login_submit'
+    expect(page).to have_content 'NOT FOUND'
+  end
+
+  scenario "doesn't sign in a correct username but bad password, stay on the login page" do
   	visit '/'
   	within(".user_login") do
-  		fill_in "name", with: guest_user.password
-  		fill_in "user_pwd", with: guest_user.snake_name
+  		fill_in "snake_name", with: "Testicles"
+  		fill_in "password", with: "bad password"
   	end
   	click_button 'login_submit'
-  	expect(page).to have_content 'NOT FOUND'
+  	expect(page).to have_content 'Login'
   end
 
 end

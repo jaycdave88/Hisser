@@ -5,6 +5,7 @@ gem 'faker', github: 'stympy/faker'
 
 # PostgreSQL driver
 gem 'pg'
+gem 'pry'
 
 # Sinatra driver
 gem 'sinatra'
