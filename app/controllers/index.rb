@@ -3,35 +3,41 @@ get '/' do
 end
 # home page
 
-
-get '/snake_hatch' do 
+# register page
+get '/snake_hatch' do
 	erb :create
 end
-# user's page
 
 
+get '/welcome_page' do
+	erb :welcome
+end
 
-get '/:user_id' do
-	user_find = User.find_by(snake_name: params[:snake_name])
-	if user_find == nil
+get '/check' do
+	user = User.find_by(snake_name: params[:name])
+
+	if user == nil
 		erb :not_found
 	else
-		session[:user_id] = user_find.id
+
+		session[:user_id] = user.id
+		redirect "/welcome_page"
 		erb :welcome
 	end
 end
+
+
 
 post '/snake_hatcht' do
 	user_find = User.find_by(snake_name: params[:snake_name])
 	if user_find == nil
 	user = User.create(params)
-	session[:user_id] = user.id
-	end 
+
+		session[:user_id] = user.id
+	end
+
 	redirect '/'
 end
 
-
-
-# register page
 
 

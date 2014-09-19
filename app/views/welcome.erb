@@ -1,8 +1,11 @@
-This is going to be the user welcome site 
-
-it will show tweets from the user 
-it will show the tweets from the people the user 'follows'
-it will have a logout button
-it will have a 'retweet' 
-it will have a 'follow'
-it will have a new 'hiss'/post
+<div class = "login_block">
+Welcome
+<% user= User.find(session[:user_id]) %>
+<%= user.snake_name  %>
+<a href=""> Log out </a>
+</div>
+<div class = "statistics">
+  <p> Followers <%= user.relationships.pluck(:followed_id).count  %>
+    You Follow <%= Relationship.where(follower_id: user.id).count  %>
+  </p>
+</div>
