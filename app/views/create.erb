@@ -7,9 +7,10 @@
 <body>
 
 	<div class="first_name">
-		<form action= "/snake_hatch" method = "post">
+		<form action= "/snake_hatcht" method = "post">
 			First Name:<input type="text" name="first_name"><br>
 			Last Name: <input type="text" name="last_name"><br>
+			Email: <input type="text" name="email"><br>
 			<br>
 			<p>Choose A User Name and Password </p>
 			User Name:<input type="text" name="snake_name"><br>
@@ -18,15 +19,6 @@
 		</div>
 		</form>
 
-
-
-		<%if session[:user_id]%>
-			<%user = User.find(session[:user_id])%>
-			<%email_address = user.email.downcase %>
-			<%hash = Digest::MD5.hexdigest(email_address)%>
-			<%image_src = "http://www.gravatar.com/avatar/#{hash}"%>
-			<img src="<%=image_src%>">
-		<%end%>
 
 	</body>
 
