@@ -1,0 +1,13 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  background-color: rgba(200,0,100,0.5);
+
+}
+.big_snake {
+  background-image: url("snake.jpg");
+  background-repeat: repeat;
+}
+

@@ -4,20 +4,21 @@
 <head>
 	<title>Hisser</title>
 </head>
-<body>
+<body class="big_snake">
 
-	<div class ="welcome">
-		Hisser Login Page
-	</div>
-	<br>
+	<div class="container">
+		<div class ="welcome">
+			<p>Hisser Login Page</p>
+		</div>
 
-	<div class ="user_login">
-		<form action = "/:user_id" method = "get">
-			User Name:<input type="text" name="user_name"><br>
-			Password: <input type="password" name="user_pwd"><br>
-			<input type= "submit" value ="Login">
-		</form>
-	</div>
+
+		<div class ="user_login">
+			<form action = "/:user_id" method = "get">
+				User Name:<input type="text" name="user_name"><br>
+				Password: <input type="password" name="user_pwd"><br>
+				<input type= "submit" value ="Login">
+			</form>
+		</div>
 	<br>
 	<br>
 
@@ -28,11 +29,11 @@
 
 	<div class ="new_account">
 		<form action = "/snake_hatch" method = "get">
-
 			<input type= "submit" value ="Register">
 		</form>
 	</div>
 
+</div>
 
 </body>
 
