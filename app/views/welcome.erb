@@ -5,13 +5,8 @@ Welcome
 
 <a href="http://localhost:9393/?"> Log out </a>
 
-<!-- <form action = "/" method = 'get'>
-  <input type = 'submit' value ="Log out" id ="log_out">
-</form>
-</div> -->
-
 <div class = "statistics">
-  <p> Followers <%= user.relationships.pluck(:followed_id).count  %>
-    You Follow <%= Relationship.where(follower_id: user.id).count  %>
+  <p> Followers <%= user.relationships.pluck(:following_id).count  %>
+    You Follow <%= Relationship.where(person_id: user.id).count  %>
   </p>
 </div>
