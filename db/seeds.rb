@@ -9,6 +9,6 @@ end
 end
 
 500.times do
-  Relationship.create(follower_id: rand(1..25), followed_id: rand(1..25))
+  Relationship.create(person_id: rand(1..25), following_id: rand(1..25))
 end
 
