@@ -28,7 +28,7 @@ end
 
 
 
-post '/snake_hatcht' do
+post '/snake_hatch' do
 	user_find = User.find_by(snake_name: params[:snake_name])
 	if user_find == nil
 	user = User.create(params)
