@@ -21,3 +21,18 @@
   padding: 0px 30% 0px 0px;
   text-align: right;
 }
+.avatar p{
+
+
+   border: 1px dotted black;
+   width: 100px;
+   height: 100px
+   float: left;
+}
+.hisses{
+
+   border: 1px dotted black;
+   width: 400x;
+   float: left;
+   margin-right: 200px;
+}
