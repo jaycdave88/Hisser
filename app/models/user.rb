@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :snake_name, uniqueness: true, presence: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+
   has_many :hisses
 
   has_many :followers, through: :relationships, source: :follower
