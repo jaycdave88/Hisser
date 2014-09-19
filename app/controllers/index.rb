@@ -8,7 +8,6 @@ get '/snake_hatch' do
 	erb :create
 end
 
-
 get '/welcome_page' do
 	erb :welcome
 end
@@ -24,6 +23,9 @@ get '/check' do
 	end
 end
 
+get '/:user_id' do
+	erb :snake_profile
+end
 
 post '/snake_hatch' do
 	if params[:snake_name] == "" || params[:password] == ""
@@ -37,6 +39,5 @@ post '/snake_hatch' do
 		redirect '/'
 	end
 end
-
 
 
