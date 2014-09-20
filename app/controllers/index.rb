@@ -55,3 +55,7 @@ post '/new_hiss' do
 	redirect '/welcome_page'
 end
 
+get '/profile/:user_id' do
+		@user = User.find(params[:user_id])
+		erb :profile_page
+end

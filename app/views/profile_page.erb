@@ -1,7 +1,4 @@
-<!DOCTYPE>
-<html>
-<body class= "welcome">
-
+<center>
 <div class = "login_block">
 Welcome <% user= User.find_by(snake_name: session[:username]) %>
 <%= user.snake_name  %>
@@ -14,7 +11,7 @@ Welcome <% user= User.find_by(snake_name: session[:username]) %>
     You Follow <%= Relationship.where(person_id: @user.id).count  %>
   </p>
 </div>
-
+<h1>Profile Page of <%= @user.snake_name  %></h1>
 <div class = "avatar">
   <h2>Avatar</h2>
     <%if session[:user_id]%>
@@ -27,38 +24,10 @@ Welcome <% user= User.find_by(snake_name: session[:username]) %>
 
 
 <div class = "hisses">
-  <h1>Latest Hisses</h1>
- <% array = @user.relationships.pluck(:following_id)   %>
-  <% array << @user.id  %>
+  <h1> <%= @user.snake_name  %>s  Hisses</h1>
 
- <% array.each do |id|%>
-   <p><%= Hiss.find_by(user_id: id).hiss %></p>
-<%end%>
 <%=erb :your_hiss%>
 </div>
-
-<div class="snakes">
-  <h2>Snakes you Follow!</h2>
- <% array.each do |id|%>
-   <a href="profile/<%= id %>"><p><%= User.find(id).snake_name %></p></a>
-<%end%>
-</div>
-
 <br>
 <br>
-
-<div class="creat_hiss">
-<p>Create HIss</p>
-<form action='/new_hiss' method='post'>
-  <input type="text" name="hissing" placeholder="New Hiss"><br>
-  <input
-  <input type="hidden" name="user_id" value="<%= @user.id%>" >
-  <input type="submit">
-</form>
-  </div>
-
-
-</body>
-</html>
-
-
+</center>
