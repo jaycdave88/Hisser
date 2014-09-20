@@ -1,3 +1,25 @@
+.big_snake{
+  background-color: #217C7E;
+}
+.create{
+  background-color: #3399FF;
+  background: url('http://images2.fanpop.com/images/photos/2800000/corn-sake-snakes-2859654-2560-1735.jpg');
+   background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.welcome{
+    background-color: #3399FF;
+  background: url('http://2.bp.blogspot.com/-5MGOEsBwZi8/UTzKN_MuaTI/AAAAAAAAB1I/3wWHCRzzljM/s1600/shoop+snake.JPG');
+   background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
 .container {
   margin: 20px auto;
   width: 600px;
@@ -8,11 +30,14 @@
 }
 .big_snake {
   background-image: url("snake.jpg");
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .login_block{
-  border: 1px dotted black;
+  border: 1px solid black;
   text-align: right;
   padding: 0 20px 0 0;
 }
