@@ -1,3 +1,7 @@
+<!DOCTYPE>
+<html>
+<body class= "welcome">
+
 <div class = "login_block">
 Welcome <% user= User.find_by(snake_name: session[:username]) %>
 <%= user.snake_name  %>
@@ -52,5 +56,9 @@ Welcome <% user= User.find_by(snake_name: session[:username]) %>
   <input type="submit">
 </form>
   </div>
+
+
+</body>
+</html>
 
 
