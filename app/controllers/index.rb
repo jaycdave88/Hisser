@@ -3,7 +3,7 @@ get '/' do
 	session[:username] = nil
 	erb :index
 end
-# home page
+
 
 # register page
 get '/snake_hatch' do
